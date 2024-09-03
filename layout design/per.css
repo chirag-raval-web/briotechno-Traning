@@ -1,0 +1,98 @@
+body {
+    background-color: rgb(25, 25, 168);
+}
+
+.mainDiv {
+    width: 100%;
+    height: 500px;
+    display: flex;
+}
+
+.mainChild {
+    margin: 10px;
+}
+
+.mainDiv>#section1 {
+    width: 20%;
+    height: 100%;
+    height: 500px;
+    background-color: green;
+}
+
+.mainDiv>#section2 {
+    width: 60%;
+}
+
+.mainDiv>#section3 {
+    width: 20%;
+    height: 100%;
+}
+
+#section2>#secSecSub1 {
+    width: 100%;
+    background-color: green;
+    height: 33.33%;
+    margin-bottom: 10px;
+}
+
+#section2>#secSecSub2 {
+    width: 100%;
+    display: inline-flex;
+    height: 33.33%;
+    margin-bottom: 10px;
+}
+
+#section2>#secSecSub3 {
+    width: 100%;
+    display: inline-flex;
+    height: 33.33%;
+}
+#section3{
+    display: flex;
+    flex-direction: column;
+}
+#section3>#thirdSecSub1 {
+    width: 100%;
+    background-color: red;
+    height: 33.33%;
+    margin-bottom: 10px;
+
+}
+
+#section3>#thirdSecSub2 {
+    width: 100%;
+    background-color: green;
+    height: 66.66%;
+
+}
+
+#part1 {
+    border: 1px black solid;
+    width: 50%;
+    height: 100%;
+    background-color: yellow;
+    margin-right: 10px;
+}
+
+#part2 {
+    border: 1px black solid;
+    width: 50%;
+    height: 100%;
+    background-color: red;
+}
+
+#part3 {
+    border: 1px black solid;
+    width: 50%;
+    height: 100%;
+    background-color: red;
+    margin-right: 10px;
+
+}
+
+#part4 {
+    border: 1px black solid;
+    width: 50%;
+    height: 100%;
+    background-color: yellow;
+}
