@@ -15,7 +15,7 @@ body {
 .mainDiv>#section1 {
     width: 20%;
     height: 100%;
-    height: 500px;
+
     background-color: green;
 }
 
@@ -47,10 +47,12 @@ body {
     display: inline-flex;
     height: 33.33%;
 }
-#section3{
+
+#section3 {
     display: flex;
     flex-direction: column;
 }
+
 #section3>#thirdSecSub1 {
     width: 100%;
     background-color: red;
@@ -75,14 +77,12 @@ body {
 }
 
 #part2 {
-    border: 1px black solid;
     width: 50%;
     height: 100%;
     background-color: red;
 }
 
 #part3 {
-    border: 1px black solid;
     width: 50%;
     height: 100%;
     background-color: red;
@@ -95,4 +95,95 @@ body {
     width: 50%;
     height: 100%;
     background-color: yellow;
+}
+
+@media only screen and (max-width: 600px) {
+
+    /* -----set div to vertically----------- */
+    .mainDiv {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* -----set margin 0----------- */
+    .mainChild,
+    #part1,
+    #section2>#secSecSub1,
+    #section2>#secSecSub2,
+    #section3>#thirdSecSub1 {
+        margin: 0;
+    }
+
+    /* ------------make side by side div vertically--- */
+    #secSecSub2,
+    #secSecSub3 {
+        display: flex;
+        flex-direction: column;
+        width: 1005;
+    }
+
+    /* ------------adjusting sections of main div (3)--- */
+    .mainDiv>#section1 {
+        width: 100%;
+        height: 12.5%;
+    }
+
+    .mainDiv>#section2 {
+        height: 62.5%;
+        width: 100%;
+
+    }
+
+    .mainDiv>#section3 {
+        height: 25%;
+        width: 100%;
+    }
+
+    /* --------------giving height to the section2 child--*/
+
+    #section2>#secSecSub1 {
+        height: 20%;
+    }
+
+    #section2>#secSecSub2 {
+        height: 40%;
+    }
+
+    #section2>#secSecSub3 {
+        height: 40%;
+    }
+
+    /* --------------giving height to the secSecSub2,3 child--*/
+    #secSecSub2>#part1,
+    #part2 {
+        height: 50%;
+        width: 100%;
+    }
+
+    #secSecSub3>#part3,
+    #part4 {
+        height: 50%;
+        width: 100%;
+    }
+
+    /* --------------------giving hight to section 3---- */
+
+    #section3>#thirdSecSub1 {
+        height: 50%;
+    }
+
+    #section3>#thirdSecSub2 {
+        height: 50%;
+    }
+    /* ---------giving proper margin to div  */
+    #section1,
+   #section2 > #secSecSub1,
+    #part1,
+    #part2,
+    #part3,
+   #secSecSub3 > #part4 ,
+    #section3>#thirdSecSub1{
+        margin-bottom: 10px;
+    }
 }
