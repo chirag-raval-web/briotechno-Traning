@@ -12,25 +12,41 @@ equal.onclick = () => {
 
 //todo Get the all button value by clicking
 document.querySelector(".key").addEventListener("click", (event) => {
-  let key = event.target;
-
-  let operators = key.classList.contains("operators");
-  let digits = key.classList.contains("digits");
-  if (key) {
-    if (operators || digits) {
-      if (result.textContent == 0 && digits) {
-        result.textContent = key.textContent;
-      } else if (result.textContent !== 0 && operators) {
-        // console.log(result.textContent.lastIndexOf(result.textContent.length-1));
-        result.textContent += key.textContent;
-      } else if (result.textContent !== 0 && digits) {
-        result.textContent += key.textContent;
-    } 
-    //   else if (
-    //     result.textContent.lastIndexOf(result.textContent.length - 1) == "+"
-    //   ) {
-    //     result.textContent.slice(0, -1);
-    //   }
+    let key = event.target;
+  
+    let operators = key.classList.contains("operators");
+    let digits = key.classList.contains("digits");
+  
+    if (key) {
+      if (operators || digits) {
+        if (result.textContent == 0 && digits) {
+          result.textContent = key.textContent;
+        } else if (result.textContent !== 0 && operators) {
+          
+          let lastChar = result.textContent[result.textContent.length - 1];
+          if (["+","-","*","/"].includes(lastChar)) {
+            
+            result.textContent = result.textContent.slice(0, -1) + key.textContent;
+          } else {
+            result.textContent += key.textContent;
+          }
+        } else if (result.textContent !== 0 && digits) {
+          result.textContent += key.textContent;
+        }
+      }
     }
-  }
-});
+  });
+
+// if (
+//     lastCh[result.textContent.length - 1] == "+" ||
+//     lastCh[result.textContent.length - 1] == "-" ||
+//     lastCh[result.textContent.length - 1] == "*" ||
+//     (lastCh[result.textContent.length - 1] == "/" &&
+//       (lastCh[result.textContent.length - 2] == "+" ||
+//         lastCh[result.textContent.length - 2] == "-" ||
+//         lastCh[result.textContent.length - 2] == "*" ||
+//         lastCh[result.textContent.length - 2] == "/"))
+//   ) {
+//     console.log(lastCh[result.textContent.length - 1]);
+//     console.log(lastCh[result.textContent.length - 2]);
+//   }
