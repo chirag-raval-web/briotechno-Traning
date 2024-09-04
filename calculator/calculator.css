@@ -1,0 +1,77 @@
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+  margin: 0;
+  background-color: beige;
+}
+.calculator {
+  background-color: #1a393c;
+  height: 450px;
+  width: 300px;
+  border-radius: 10px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.result {
+  background-color: #ffffff;
+  height: 15%;
+  margin: 10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  padding: 0 10px;
+  font-size: 24px;
+  font-weight: bold;
+}
+.key {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); 
+  margin: 0 10px 10px 10px;
+  flex-grow: 1; 
+}
+.key > div {
+  background-color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  font-size: 24px;
+  border: 1px solid black; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 21px;
+  cursor: pointer;
+  color: black;
+  transition: background-color 0.2s ease;
+}
+.key > div:hover {
+  background-color: rgba(255, 255, 255, 1);
+}
+#equal {
+  grid-column: 4; 
+  grid-row: span 5;  
+  background-color: #f13a7a;
+  color: #ffffff;
+}
+.operators {
+  background-color: #d78778;
+  color: #ffffff;
+}
+.key > #add{
+    background-color: orange;
+}
+.key > #sub{
+    background-color: lightgreen;
+}
+.key > #mul{
+    background-color: plum;
+}
+.key > #divide{
+    background-color: yellow;
+}
+.key > #equal{
+    background-color: #285b60;
+}
