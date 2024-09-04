@@ -2,19 +2,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <link rel="stylesheet" href="calculator.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="calculator.css">
     <title>Calculator</title>
-
   </head>
   <body>
     <div class="calculator">
-      <div id="result">0</div>
+      <!-- Changed input to textarea to support multi-line wrapping -->
+      <textarea wrap="soft" disabled id="result" rows="2">0</textarea>
       <div class="key">
         <div id="add" class="operators">+</div>
         <div id="sub" class="operators">-</div>
         <div id="mul" class="operators">*</div>
         <div id="divide" class="operators">/</div>
-        <div  id="equal">=</div>
+        <div id="equal">=</div>
         <div class="digits">7</div>
         <div class="digits">8</div>
         <div class="digits">9</div>
@@ -29,7 +30,6 @@
         <div id="clear">C</div>
       </div>
     </div>
-
     <script src="./calculator.js"></script>
   </body>
 </html>
