@@ -21,14 +21,16 @@ document.querySelector(".key").addEventListener("click", (event) => {
       if (result.textContent == 0 && digits) {
         result.textContent = key.textContent;
       } else if (result.textContent !== 0 && operators) {
+        // console.log(result.textContent.lastIndexOf(result.textContent.length-1));
         result.textContent += key.textContent;
       } else if (result.textContent !== 0 && digits) {
         result.textContent += key.textContent;
-      } else if (
-        result.textContent.lastIndexOf(result.textContent.length - 1) == "+"
-      ) {
-        result.textContent.slice(0, -1);
-      }
+    } 
+    //   else if (
+    //     result.textContent.lastIndexOf(result.textContent.length - 1) == "+"
+    //   ) {
+    //     result.textContent.slice(0, -1);
+    //   }
     }
   }
 });
