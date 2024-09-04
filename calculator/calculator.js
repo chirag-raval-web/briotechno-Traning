@@ -37,16 +37,3 @@ document.querySelector(".key").addEventListener("click", (event) => {
     }
   });
 
-// if (
-//     lastCh[result.textContent.length - 1] == "+" ||
-//     lastCh[result.textContent.length - 1] == "-" ||
-//     lastCh[result.textContent.length - 1] == "*" ||
-//     (lastCh[result.textContent.length - 1] == "/" &&
-//       (lastCh[result.textContent.length - 2] == "+" ||
-//         lastCh[result.textContent.length - 2] == "-" ||
-//         lastCh[result.textContent.length - 2] == "*" ||
-//         lastCh[result.textContent.length - 2] == "/"))
-//   ) {
-//     console.log(lastCh[result.textContent.length - 1]);
-//     console.log(lastCh[result.textContent.length - 2]);
-//   }
