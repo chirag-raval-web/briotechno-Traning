@@ -29,6 +29,7 @@ body {
   font-size: 24px;
   text-align: right; 
   vertical-align: bottom;
+  resize: none;
 }
 
 .key {
