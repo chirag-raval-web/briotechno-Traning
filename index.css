@@ -1,0 +1,43 @@
+ 
+body {
+
+    background-color: hsl(193.94deg 72.45% 61.57%);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.main {
+    background-color: white;
+    margin: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 50px;
+width: 40%;
+ 
+}
+
+.btn {
+    width: 100%;
+    background-color: hsl(193.94deg 72.45% 61.57%);
+    border: transparent;
+}
+.btn:hover{
+    background-color: hsl(194, 48%, 50%);
+}
+
+.h6 {
+    color: hsl(193.94deg 72.45% 61.57%);
+}
+@media screen and (max-width:800px)  {
+.main{
+width: 100%;
+}
+}
+
+@media screen and (max-height:915px)  {
+    .main{
+    /* height: 20vh; */
+    }
+    }
+ 
