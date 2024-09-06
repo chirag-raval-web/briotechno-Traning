@@ -22,53 +22,49 @@ start.addEventListener('click', () => {
     for (let i = 1; i <= randomNum; i++) {
 
         // create div element 
-        let item = document.createElement('div');
+        let item = document.createElement('span');
         //    add class the div 
         item.classList.add('balloon');
+        item.classList.add(`m-${Math.round(Math.random() * 5)}`);
+        item.classList.add(`p-${Math.round(Math.random() * 5)}`);
+        item.classList.add(`ms-${Math.round(Math.random() * 5)}`);
+        item.classList.add(`mt-${Math.round(Math.random() * 5)}`);
+        item.classList.add(`mb-${Math.round(Math.random() * 5)}`);
         // add balloon in the div 
         item.innerText = `🎈`
 
-        // Randomly position the balloon within the container
-        let maxX = containerWidth - 50; // Adjust according to balloon size
-        let maxY = containerHeight - 50; // Adjust according to balloon size
-        let randomX = Math.floor(Math.random() * maxX);
-        let randomY = Math.floor(Math.random() * maxY);
-        item.style.left = `${randomX}px`;
-        item.style.top = `${randomY}px`;
-        console.log(maxX);
-        console.log(maxY);
-        
+
+
         displayBalloons.appendChild(item)
     }
 
-    console.log(item);
 
 
 })
 
 check.addEventListener('click', () => {
 
-    
+
     if (input.value == randomNum) {
         msg.classList.remove('d-none');
-        msg.classList.replace('alert-msg','alert-success');
-        msg.classList.replace('alert-danger','alert-success');
-        msg.classList.replace('alert-warning','alert-success');
+        msg.classList.replace('alert-msg', 'alert-success');
+        msg.classList.replace('alert-danger', 'alert-success');
+        msg.classList.replace('alert-warning', 'alert-success');
         msg.innerText = "congratulation 🎉 You win"
         input.value = null;
-    } else if(input.value == ''){
-        
+    } else if (input.value == '') {
+
         msg.classList.remove('d-none');
-        msg.classList.replace('alert-msg','alert-warning');
-        msg.classList.replace('alert-danger','alert-warning');
-        msg.classList.replace('alert-success','alert-warning');
+        msg.classList.replace('alert-msg', 'alert-warning');
+        msg.classList.replace('alert-danger', 'alert-warning');
+        msg.classList.replace('alert-success', 'alert-warning');
         msg.innerText = "please enter value"
         input.value = null;
-    }else{
+    } else {
         msg.classList.remove('d-none');
-        msg.classList.replace('alert-msg','alert-danger');
-        msg.classList.replace('alert-warning','alert-danger');
-        msg.classList.replace('alert-success','alert-danger');
+        msg.classList.replace('alert-msg', 'alert-danger');
+        msg.classList.replace('alert-warning', 'alert-danger');
+        msg.classList.replace('alert-success', 'alert-danger');
         msg.innerText = "WRONG ANSWER ! You Lose 😥"
         input.value = null;
     }

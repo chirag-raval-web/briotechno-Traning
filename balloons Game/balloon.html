@@ -8,36 +8,7 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="./balloon.css">
     <title>Balloons Game</title>
-    <style>
-        body {
-            background-color: #6A9C89;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
 
-        #display-ballons {
-    height: 70vh;
-    background-image: url('./wall.png');
-    width: 50vw;
-    background-color: aqua;
-    position: relative; 
-    overflow: hidden;  
-}
-
-.balloon {
- 
-    font-size: 4em;
-    background-color: transparent;
-    cursor: pointer;
-    user-select: none;
-    scale: 1;
-    
-}
-
-    </style>
 </head>
 
 <body>
@@ -45,14 +16,15 @@
     <div class="container">
         
         <div class="row">
-            <div class="shadow-lg rounded col-7 col-sm-12" id="display-ballons">
-                <!-- Balloons will be displayed here -->
-    
-                    
-                 
+            <div class="shadow-lg rounded col-7  col-sm-12" id="display-ballons">
+
+          
+ 
+
+
             </div>
-            <div class="col-xxl-2 col-5  ">
-                <input type="button" id="start" value="START" class="p-2 mb-3 col-12 shadow bg-warning border-0 rounded">
+            <div class="col-xxl-2 col-5">
+                <input type="button" id="start" value="START" class="p-2 mb-3 mt-5 mt-sm-0 col-12 shadow bg-warning border-0 rounded">
                 <input type="number" id="inputCheck" maxlength="3" class="p-2 mb-3 col-12 shadow rounded border-0"
                     placeholder="How many balloons in display?">
                 <input type="button" id="check" value="CHECK" class="p-2 col-12 mb-3 shadow bg-success border-0 rounded">
