@@ -15,8 +15,7 @@ start.addEventListener('click', () => {
     // generate random number between 1 to 10 
     randomNum = Math.round(Math.random() * 10);
 
-    let containerWidth = displayBalloons.clientWidth;
-    let containerHeight = displayBalloons.clientHeight;
+    let totalBalloons = ['Balloon_Red.png', 'Balloon_Green.png', 'Balloon_Pink.png', 'Balloon_Blue.png'];
 
     // display random number of ballons
     for (let i = 1; i <= randomNum; i++) {
@@ -24,16 +23,17 @@ start.addEventListener('click', () => {
         // create div element 
         let item = document.createElement('span');
         //    add class the div 
-        item.classList.add('balloon');
+        // item.classList.add('balloon');
         item.classList.add(`m-${Math.round(Math.random() * 5)}`);
         item.classList.add(`p-${Math.round(Math.random() * 5)}`);
         item.classList.add(`ms-${Math.round(Math.random() * 5)}`);
         item.classList.add(`mt-${Math.round(Math.random() * 5)}`);
         item.classList.add(`mb-${Math.round(Math.random() * 5)}`);
         // add balloon in the div 
-        item.innerText = `🎈`
+        // item.innerText = `🎈`
+        item.innerHTML = `<img src="./${totalBalloons[Math.round(Math.random() * 3)]}" class="balloon" alt="${totalBalloons[Math.round(Math.random() * 3)]}">`
 
-
+        // item.src = "./Balloon_Red.png";
 
         displayBalloons.appendChild(item)
     }
@@ -44,30 +44,23 @@ start.addEventListener('click', () => {
 
 check.addEventListener('click', () => {
 
+    alertMsg = ['d-none','alert-success','alert-danger','alert-warning'];
 
     if (input.value == randomNum) {
-        msg.classList.remove('d-none');
-        msg.classList.replace('alert-msg', 'alert-success');
-        msg.classList.replace('alert-danger', 'alert-success');
-        msg.classList.replace('alert-warning', 'alert-success');
+        msg.classList.remove(alertMsg[0],alertMsg[2] ,alertMsg[3]);
+        msg.classList.add(alertMsg[1]);
         msg.innerText = "congratulation 🎉 You win"
         input.value = null;
     } else if (input.value == '') {
 
-        msg.classList.remove('d-none');
-        msg.classList.replace('alert-msg', 'alert-warning');
-        msg.classList.replace('alert-danger', 'alert-warning');
-        msg.classList.replace('alert-success', 'alert-warning');
+        msg.classList.remove(alertMsg[0],alertMsg[1] ,alertMsg[2]);
+        msg.classList.add(alertMsg[3]);
         msg.innerText = "please enter value"
         input.value = null;
     } else {
-        msg.classList.remove('d-none');
-        msg.classList.replace('alert-msg', 'alert-danger');
-        msg.classList.replace('alert-warning', 'alert-danger');
-        msg.classList.replace('alert-success', 'alert-danger');
+        msg.classList.remove(alertMsg[0],alertMsg[1] ,alertMsg[3]);
+        msg.classList.add(alertMsg[2]);
         msg.innerText = "WRONG ANSWER ! You Lose 😥"
         input.value = null;
     }
-
-
 })

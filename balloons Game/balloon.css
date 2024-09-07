@@ -9,7 +9,7 @@ body {
 }
 
 #display-ballons {
-height: 50vh;
+height: 80vh;
 background-image: url('./wall.png');
 width: 50vw;
 background-color: aqua;
@@ -18,7 +18,7 @@ overflow: hidden;
 }
 
 .balloon {
-
+height: 120px;
 font-size: 4em;
 background-color: transparent;
 cursor: pointer;
