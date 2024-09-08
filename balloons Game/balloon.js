@@ -107,6 +107,7 @@ displayBalloons.innerHTML = '';
 let startGame = () => {
      startCountdown();
 
+     displayBalloons.innerHTML = '';
 
     // generate random number between 1 to 10 
     randomNum = Math.round(Math.random() * (stageCount*10+1));
@@ -167,7 +168,7 @@ let checkResult = () => {
 
         msg.classList.remove(alertMsg[0], alertMsg[1], alertMsg[2]);
         msg.classList.add(alertMsg[3]);
-        msg.innerText = "please enter value"
+        msg.innerText = "please enter value";
         input.value = null;
     } else {
         msg.classList.remove(alertMsg[0], alertMsg[1], alertMsg[3]);
