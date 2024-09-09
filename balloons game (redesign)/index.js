@@ -101,6 +101,7 @@ let checkResult = () => {
     message.classList.add("alert-warning");
     message.innerText = "Please enter a value.";
     inputField.value = null;
+    alert(randomNum)
   } else {
     message.classList.add("alert-danger");
     message.innerText = "WRONG ANSWER! You Lose!";
