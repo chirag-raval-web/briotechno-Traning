@@ -1,104 +1,140 @@
- <!doctype html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  </head>
-  <body>
-    <style>
-        #display-balloons{
-            background-image: url('./wall.png');
-            background-repeat: no-repeat;
-            background-size: cover;
-            
-        }.balloons{
-          height: 120px;
-        }
-    </style>
-    <div class="container mt-5 text-center">
-        <div class="row">
-          <div class="col-8 mt-5 " id="display-balloons">
-            
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Balloon Game</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body>
+  <style>
+    body {
+      background-color: #6A9C89;
+      overflow-x: hidden;
+    }
+
+    #display-balloons {
+      background-image: url('./wall.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    #counter {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      /* transform: translateX(-50%); */
+      z-index: 1000;
+      font-size: 1.5rem;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border-radius: 50px;
+    }
+  </style>
+
+  <!-- Counter at the top -->
+  <p id="counter" class="btn rounded-circle">00:00</p>
+
+  <div class="container ms-6 mt-5 text-center">
+    <div class="row">
+      <div class="col-8 mt-5" id="display-balloons">
+      </div>
+      <div class="col-3">
+        <input type="button" id="start" value="START" class="p-2 mb-3 mt-5 mt-sm-0 col-11 shadow bg-warning border-0 rounded">
+        <input type="number" id="input" maxlength="3" class="p-2 mb-3 col-11 shadow rounded border-0" placeholder="How many balloons in display?">
+        <input type="button" id="check" value="CHECK" class="p-2 col-11 mb-3 shadow bg-success border-0 rounded">
+        <div class="alert text-center alert-primary ms-3 shadow col-11 mb-3" id="message" role="alert">GOOD LUCK !</div>
+        <table class="table table-bordered table-striped text-center col-11">
+          <tbody>
+            <tr class="table-primary">
+              <td>Stage Score</td>
+              <td id="score">0</td>
+            </tr>
+            <tr class="table-secondary">
+              <td>Level</td>
+              <td id="stage">1</td>
+            </tr>
+            <tr class="table-success">
+              <td>Winnings</td>
+              <td id="winning">0</td>
+            </tr>
+            <tr class="table-danger">
+              <td>Lose</td>
+              <td id="lose">0</td>
+            </tr>
+            <tr class="table-info">
+              <td colspan="2"><button type="button" class="btn border-0" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Read Game Rules</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Modal sections -->
+    <div class="modal fade" id="victoryModel" tabindex="-1" aria-labelledby="victoryModel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="victoryModel">VICTORYY !!</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="col-3 ">
-            <input type="button" id="start" value="START" class="p-2 mb-3 mt-5 mt-sm-0 col-11 shadow bg-warning border-0 rounded">
-            <input type="number" id="input" maxlength="3" class="p-2 mb-3 col-11 shadow rounded border-0"
-                placeholder="How many balloons in display?">
-            <input type="button" id="check" value="CHECK" class="p-2 col-11 mb-3 shadow bg-success border-0 rounded">
-            <div class="alert text-center alert-primary ms-3  shadow col-11 mb-3" id="message" role="alert">
-                GOOD LUCK ! 
-              </div>
-              <table class="table table-bordered table-striped text-center col-11 ">
-                <tbody>
-                    <tr class="table-primary">
-                        <td class="col-4" >Your Score</td>
-                        <td class="col-5"  id="score">0</td>
-                    </tr>
-                    <tr class="table-secondary">
-                        <td class="rounded" >Stage</td>
-                        <td class="rounded"  id="stage">1</td>
-                    </tr>
-                    <tr class="table-success">
-                        <td class="rounded" >Winnings</td>
-                        <td class="rounded"  id="winning">0</td>
-                    </tr>
-                    <tr class="table-danger">
-                        <td class="rounded" >Lose</td>
-                        <td class="rounded"  id="lose">0</td>
-                    </tr>
-                     
-                    <tr class="table-info">
-                        <td class="rounded" id="tip"  colspan="2"></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="col-12 ms-5 position-absolute ">
-            <p type="button" id="counter" class="btn rounded-circle btn-primary position-absolute">00:00</p>
+          <div class="modal-body">
+            Congratulations!! You win this stage 🎉 Do you want to play this stage again or move to the next stage ➡️
+          </div>
+          <div class="modal-footer">
+            <button type="button" id="playAgain" class="btn btn-primary">Play Again</button>
+            <button type="button" id="nextStage" class="btn btn-secondary" data-bs-dismiss="modal">Next Stage</button>
+          </div>
         </div>
       </div>
-      <!-- <div class="modal fade" id="victoryModel" tabindex="-1" aria-labelledby="victoryModel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="victoryModel">VICTORYY !!</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    congratulations  !! you win this stage 🎉 , do you want to play this stage again or move to next stage ➡️
-                </div>
-                <div class="modal-footer">
-                    <button type="button"  id="playAgain" class="btn btn-primary">Play Again</button>
-                    <button type="button" id="nextStage"  class="btn btn-secondary" data-bs-dismiss="modal">Next Stage</button>
-                </div>
-            </div>
-        </div>
     </div>
+
+    <!-- Other modals and content -->
     <div class="modal fade" id="timeOutModel" tabindex="-1" aria-labelledby="timeOutModel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="timeOutModel">VICTORYY !!</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    oh no..😿 , times up !! 
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Play Again</button>
-                </div>
-            </div>
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="timeOutModel">Times up!! Buddy</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            Oh no..😿 Times up!!
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
         </div>
-    </div> -->
+      </div>
+    </div>
 
-          
-  
+    <!-- Game rules modal -->
+    <div class="modal fade modal-lg model-dark" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-fullscreen-sm-down">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Gameplay Overview</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <!-- Gameplay rules content -->
+            <pre class="font-monospace"> 
+              [Your game rules text here...]
+            </pre>
+          </div>
+          <div class="modal-footer">
+            <button type="button" data-bs-dismiss="modal" class="btn btn-primary">Understood</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-      <script src="./index.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  </body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="./index.js" defer></script>
+
+</body>
+
 </html>
